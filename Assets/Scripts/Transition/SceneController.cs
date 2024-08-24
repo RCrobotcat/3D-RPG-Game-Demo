@@ -32,13 +32,13 @@ public class SceneController : Singleton<SceneController>
 
     IEnumerator Transition(string SceneName, TransitionDestination.DestinationTag destinationTag)
     {
-        // TODO: Save player data
-
+        SaveManager.Instance.SavePlayerData();
         if (SceneName != SceneManager.GetActiveScene().name)
         {
             yield return SceneManager.LoadSceneAsync(SceneName);
             yield return Instantiate(playerPrefab, GetDestination(destinationTag).transform.position,
                 GetDestination(destinationTag).transform.rotation);
+            SaveManager.Instance.LoadPlayerData();
             yield break; // Exit the coroutine
         }
         else

@@ -13,6 +13,14 @@ public class TransitionPoint : MonoBehaviour
 
     private bool ableToTransition;
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && ableToTransition)
+        {
+            SceneController.Instance.TransitToDestination(this);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -22,6 +30,6 @@ public class TransitionPoint : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-            ableToTransition = true;
+            ableToTransition = false;
     }
 }

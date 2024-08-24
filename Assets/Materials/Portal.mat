@@ -54,10 +54,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _CellScale: 10
+    - _PowerScale: 20
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0.3
     - _Strength: 20
     m_Colors:
-    - _Color: {r: 0, g: 7.61186, b: 6.3228536, a: 0}
+    - _Color: {r: 0, g: 7.6118603, b: 0.9962901, a: 0}
   m_BuildTextureStacks: []

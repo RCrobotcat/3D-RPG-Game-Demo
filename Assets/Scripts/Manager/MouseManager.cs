@@ -20,7 +20,7 @@ public class MouseManager : Singleton<MouseManager>
     {
         base.Awake();
         // don't destroy this object when loading a new scene
-        // DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
     }
 
     private void Update()

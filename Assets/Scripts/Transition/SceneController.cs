@@ -6,8 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController>
 {
+    public GameObject playerPrefab;
+
     GameObject player;
     NavMeshAgent playerAgent;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this);
+    }
 
     public void TransitToDestination(TransitionPoint transitionPoint)
     {
@@ -17,19 +25,32 @@ public class SceneController : Singleton<SceneController>
                 StartCoroutine(Transition(SceneManager.GetActiveScene().name, transitionPoint.destinationTag));
                 break;
             case TransitionPoint.TransitionType.DifferentScene:
+                StartCoroutine(Transition(transitionPoint.sceneName, transitionPoint.destinationTag));
                 break;
         }
     }
 
-    IEnumerator Transition(string SceneNames, TransitionDestination.DestinationTag destinationTag)
+    IEnumerator Transition(string SceneName, TransitionDestination.DestinationTag destinationTag)
     {
-        player = GameManager.Instance.playerStatus.gameObject;
-        playerAgent = player.GetComponent<NavMeshAgent>();
-        playerAgent.enabled = false;
-        player.transform.SetPositionAndRotation(GetDestination(destinationTag).transform.position,
-            GetDestination(destinationTag).transform.rotation);
-        playerAgent.enabled = true;
-        yield return null;
+        // TODO: Save player data
+
+        if (SceneName != SceneManager.GetActiveScene().name)
+        {
+            yield return SceneManager.LoadSceneAsync(SceneName);
+            yield return Instantiate(playerPrefab, GetDestination(destinationTag).transform.position,
+                GetDestination(destinationTag).transform.rotation);
+            yield break; // Exit the coroutine
+        }
+        else
+        {
+            player = GameManager.Instance.playerStatus.gameObject;
+            playerAgent = player.GetComponent<NavMeshAgent>();
+            playerAgent.enabled = false;
+            player.transform.SetPositionAndRotation(GetDestination(destinationTag).transform.position,
+                GetDestination(destinationTag).transform.rotation);
+            playerAgent.enabled = true;
+            yield return null;
+        }
     }
 
     // Find the destination entrance in the new scene

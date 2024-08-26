@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6689971244064267637, guid: cad9f745870d9f448bf225d2a253d382, type: 3}
       propertyPath: DestroyTime
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6689971244064267637, guid: cad9f745870d9f448bf225d2a253d382, type: 3}
       propertyPath: breakEffect

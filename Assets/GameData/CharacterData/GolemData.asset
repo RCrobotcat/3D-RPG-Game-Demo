@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GolemData
   m_EditorClassIdentifier: 
   maxHealth: 80
-  currentHealth: 2
-  baseDefence: 7
-  currentDefence: 7
+  currentHealth: 80
+  baseDefence: 4
+  currentDefence: 4
   killPoint: 40
   currentLevel: 0
   maxLevel: 0

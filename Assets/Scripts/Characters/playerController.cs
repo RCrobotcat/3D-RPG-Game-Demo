@@ -36,11 +36,12 @@ public class playerController : MonoBehaviour
     {
         MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.OnEnemyClicked += AttackEvent;
+        GameManager.Instance.RegisterPlayer(characterStatus);
     }
 
     private void Start()
     {
-        GameManager.Instance.RegisterPlayer(characterStatus);
+        SaveManager.Instance.LoadPlayerData();
     }
 
     void OnDisable()

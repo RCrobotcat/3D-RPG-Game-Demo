@@ -239,7 +239,7 @@ MonoBehaviour:
     name: Rock_04
   - gameObject: {fileID: 1576488453971893466, guid: a778b631c6253a04899cb31bad047c81, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 87.045654
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}

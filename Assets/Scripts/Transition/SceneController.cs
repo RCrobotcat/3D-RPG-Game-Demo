@@ -2,19 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
-public class SceneController : Singleton<SceneController>
+public class SceneController : Singleton<SceneController>, IEndGameObserver
 {
     public GameObject playerPrefab;
 
     GameObject player;
     NavMeshAgent playerAgent;
 
+    bool fadeFinished;
+
+    public SceneFader sceneFaderPrefab;
+
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.AddObserver(this);
+        fadeFinished = true;
     }
 
     public void TransitToDestination(TransitionPoint transitionPoint)
@@ -84,21 +95,36 @@ public class SceneController : Singleton<SceneController>
 
     IEnumerator LoadLevel(string stringName)
     {
+        SceneFader fade = Instantiate(sceneFaderPrefab);
         if (stringName != "")
         {
+            yield return StartCoroutine(fade.FadeOut(1.5f));
             yield return SceneManager.LoadSceneAsync(stringName);
             yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position,
                 GameManager.Instance.GetEntrance().rotation);
 
             // Save Data
             SaveManager.Instance.SavePlayerData();
+            yield return StartCoroutine(fade.FadeIn(1.5f));
             yield break;
         }
     }
 
     IEnumerator LoadMainMenu()
     {
+        SceneFader fade = Instantiate(sceneFaderPrefab);
+        yield return StartCoroutine(fade.FadeOut(3.5f));
         yield return SceneManager.LoadSceneAsync("MainMenu");
+        yield return StartCoroutine(fade.FadeIn(1.5f));
         yield break;
+    }
+
+    public void EndNotify()
+    {
+        if (fadeFinished)
+        {
+            fadeFinished = false;
+            StartCoroutine(LoadMainMenu());
+        }
     }
 }

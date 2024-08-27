@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HealthBarUI : MonoBehaviour
 {
@@ -50,7 +51,8 @@ public class HealthBarUI : MonoBehaviour
 
         // update health bar
         float sliderPercent = (float)currentHealth / maxHealth;
-        HealthSlider.fillAmount = sliderPercent;
+        // HealthSlider.fillAmount = sliderPercent;
+        HealthSlider.DOFillAmount(sliderPercent, 0.3f);
     }
 
     // Update is called once per frame, after Update

@@ -73,7 +73,6 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
             GetNewWayPoint();
         }
 
-        // FIXME: will be removed
         GameManager.Instance.AddObserver(this);
     }
 

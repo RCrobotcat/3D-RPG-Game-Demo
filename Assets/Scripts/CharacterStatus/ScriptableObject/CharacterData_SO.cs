@@ -44,8 +44,8 @@ public class CharacterData_SO : ScriptableObject
         baseDefence = (int)(baseDefence * levelMultiplier + 1);
         currentDefence = baseDefence;
 
-        Debug.Log("Level Up!" + currentLevel + "Max Health: " + maxHealth
-            + "Base Defence: " + baseDefence + "Base Exp: " + baseExp);
+        Debug.Log("Level Up! " + currentLevel + " Max Health: " + maxHealth
+            + " Base Defence: " + baseDefence + " Base Exp: " + baseExp);
         // TODO: Level Up Effect(UI Animation)
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerHealthUI : MonoBehaviour
 {
@@ -26,12 +27,14 @@ public class PlayerHealthUI : MonoBehaviour
     void updateHealthBar()
     {
         float fillPercent = (float)GameManager.Instance.playerStatus.currentHealth / GameManager.Instance.playerStatus.maxHealth;
-        healthSlider.fillAmount = fillPercent;
+        // healthSlider.fillAmount = fillPercent;
+        healthSlider.DOFillAmount(fillPercent, 0.3f);
     }
 
     void updateExpBar()
     {
         float fillPercent = (float)GameManager.Instance.playerStatus.characterData.currentExp / GameManager.Instance.playerStatus.characterData.baseExp;
-        expSlider.fillAmount = fillPercent;
+        // expSlider.fillAmount = fillPercent;
+        expSlider.DOFillAmount(fillPercent, 0.5f);
     }
 }

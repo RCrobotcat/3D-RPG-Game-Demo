@@ -12,15 +12,17 @@ public class playerController : MonoBehaviour
     private GameObject attackTarget;
     private float lastAttackTime;
 
-    private float vertical;
     private Rigidbody rb;
-    public float speed = 3.5f;
+    public float speed;
 
     private float stopDistance;
 
     bool isDead;
 
     private CharacterStatus characterStatus;
+
+    private float horizontal;
+    private float vertical;
 
     private void Awake()
     {
@@ -53,6 +55,15 @@ public class playerController : MonoBehaviour
 
     private void Update()
     {
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+
+        Vector3 inputDirection = new Vector3(horizontal, 0, vertical);
+        if (inputDirection != Vector3.zero)
+        {
+            MovePlayer(inputDirection);
+        }
+
         isDead = characterStatus.currentHealth == 0;
 
         if (isDead)
@@ -61,6 +72,13 @@ public class playerController : MonoBehaviour
         switchAnimation();
 
         lastAttackTime -= Time.deltaTime;
+    }
+
+    private void MovePlayer(Vector3 inputDirection)
+    {
+        Vector3 targetPosition = transform.position + inputDirection;
+
+        agent.SetDestination(targetPosition);
     }
 
     private void switchAnimation()

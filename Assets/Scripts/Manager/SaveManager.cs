@@ -28,7 +28,7 @@ public class SaveManager : Singleton<SaveManager>
             SceneController.Instance.ReturnToMainMenu();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             SavePlayerData();
         }

@@ -49,12 +49,26 @@ public class SaveManager : Singleton<SaveManager>
         Load(GameManager.Instance.playerStatus.characterData, GameManager.Instance.playerStatus.characterData.name);
     }
 
+    public void LoadPlayerPosition()
+    {
+        if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
+        {
+            GameManager.Instance.playerStatus.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
+                PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+        }
+    }
+
     public void Save(Object data, string key)
     {
         var jsonData = JsonUtility.ToJson(data, true);
         PlayerPrefs.SetString(key, jsonData);
+        PlayerPrefs.SetFloat("PlayerX", GameManager.Instance.playerStatus.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY", GameManager.Instance.playerStatus.transform.position.y);
+        PlayerPrefs.SetFloat("PlayerZ", GameManager.Instance.playerStatus.transform.position.z);
         PlayerPrefs.SetString(sceneName, SceneManager.GetActiveScene().name); // save scene name
         PlayerPrefs.Save(); // save to disk
+
+        Debug.Log("Data saved! ");
     }
 
     public void Load(Object data, string key)

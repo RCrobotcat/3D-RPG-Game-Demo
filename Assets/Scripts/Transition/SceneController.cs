@@ -98,15 +98,32 @@ public class SceneController : Singleton<SceneController>, IEndGameObserver
         SceneFader fade = Instantiate(sceneFaderPrefab);
         if (stringName != "")
         {
-            yield return StartCoroutine(fade.FadeOut(1.5f));
-            yield return SceneManager.LoadSceneAsync(stringName);
-            yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position,
-                GameManager.Instance.GetEntrance().rotation);
+            if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
+            {
+                yield return StartCoroutine(fade.FadeOut(1.5f));
+                yield return SceneManager.LoadSceneAsync(stringName);
+                Vector3 PlayerPos = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
+                    PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+                yield return player = Instantiate(playerPrefab, PlayerPos,
+                    GameManager.Instance.GetEntrance().rotation);
 
-            // Save Data
-            SaveManager.Instance.SavePlayerData();
-            yield return StartCoroutine(fade.FadeIn(1.5f));
-            yield break;
+                // Save Data
+                SaveManager.Instance.SavePlayerData();
+                yield return StartCoroutine(fade.FadeIn(1.5f));
+                yield break;
+            }
+            else
+            {
+                yield return StartCoroutine(fade.FadeOut(1.5f));
+                yield return SceneManager.LoadSceneAsync(stringName);
+                yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position,
+                    GameManager.Instance.GetEntrance().rotation);
+
+                // Save Data
+                SaveManager.Instance.SavePlayerData();
+                yield return StartCoroutine(fade.FadeIn(1.5f));
+                yield break;
+            }
         }
     }
 

@@ -22,8 +22,8 @@ public class playerController : MonoBehaviour
 
     private CharacterStatus characterStatus;
 
-    private float horizontal;
-    private float vertical;
+    float horizontal;
+    float vertical;
 
     private void Awake()
     {
@@ -79,8 +79,7 @@ public class playerController : MonoBehaviour
     private void MovePlayer(Vector3 inputDirection)
     {
         Vector3 targetPosition = transform.position + inputDirection;
-
-        agent.SetDestination(targetPosition);
+        MoveToTarget(targetPosition);
     }
 
     private Vector3 ConvertToCameraSpace(Vector3 vectorToRotate)

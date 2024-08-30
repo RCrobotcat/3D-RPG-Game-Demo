@@ -12,6 +12,7 @@ public class CharacterStatus : MonoBehaviour
 
     [HideInInspector]
     public bool isCritical;
+    public bool isInvincible;
 
     private void Awake()
     {
@@ -84,6 +85,7 @@ public class CharacterStatus : MonoBehaviour
 
     public void TakeDamage(CharacterStatus attacker, CharacterStatus definer)
     {
+        if (isInvincible) return;
         int damage = Mathf.Max(attacker.currentDamage() - definer.currentDefence, 0);
         currentHealth = Mathf.Max(currentHealth - damage, 0);
 
@@ -100,6 +102,7 @@ public class CharacterStatus : MonoBehaviour
     // overload
     public void TakeDamage(int damage, CharacterStatus definer)
     {
+        if (isInvincible) return;
         int currentDamage = Mathf.Max(damage - definer.currentDefence, 0);
         currentHealth = Mathf.Max(currentHealth - currentDamage, 0);
         updateHealthBarOnAttack?.Invoke(currentHealth, maxHealth);

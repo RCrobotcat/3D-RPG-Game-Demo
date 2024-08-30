@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterDash : MonoBehaviour
@@ -8,10 +7,14 @@ public class CharacterDash : MonoBehaviour
     public float dashTime;
 
     playerController player;
+    CharacterStatus playerStatus;
+    Ghost ghost;
 
     private void Awake()
     {
         player = GetComponent<playerController>();
+        playerStatus = GetComponent<CharacterStatus>();
+        ghost = GetComponent<Ghost>();
     }
 
     private void Update()
@@ -29,7 +32,11 @@ public class CharacterDash : MonoBehaviour
         while (Time.time < startTime + dashTime)
         {
             player.agent.velocity = transform.forward * dashSpeed;
+            playerStatus.isInvincible = true;
+            ghost.makeGhost = true;
             yield return null;
         }
+        ghost.makeGhost = false;
+        playerStatus.isInvincible = false;
     }
 }

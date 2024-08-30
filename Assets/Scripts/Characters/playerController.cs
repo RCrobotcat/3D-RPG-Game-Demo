@@ -155,7 +155,6 @@ public class playerController : MonoBehaviour
         isAttacking = false;
     }
 
-
     // Animation Event
     public void Hit()
     {

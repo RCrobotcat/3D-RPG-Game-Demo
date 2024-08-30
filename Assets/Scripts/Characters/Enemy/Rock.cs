@@ -24,9 +24,6 @@ public class Rock : MonoBehaviour
     public GameObject breakEffect; // break effect of the rock
     public GameObject burstEffect; // burst effect of the rock
 
-    [Header("Camera Shake Settings")]
-    public playerCamsController playerCamsController;
-
     public float DestroyTime;
     private float DestroyTimer;
 
@@ -77,7 +74,8 @@ public class Rock : MonoBehaviour
         switch (rockState)
         {
             case RockState.HitPlayer:
-                if (collision.gameObject.CompareTag("Player"))
+                if (collision.gameObject.CompareTag("Player")
+                    && !collision.gameObject.GetComponent<CharacterStatus>().isInvincible)
                 {
                     collision.gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                     collision.gameObject.GetComponent<NavMeshAgent>().velocity = direction * force;

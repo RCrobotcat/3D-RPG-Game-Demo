@@ -32,8 +32,11 @@ public class CharacterDash : MonoBehaviour
         while (Time.time < startTime + dashTime)
         {
             player.agent.velocity = transform.forward * dashSpeed;
-            playerStatus.isInvincible = true;
-            ghost.makeGhost = true;
+            if (player.agent.velocity != Vector3.zero)
+            {
+                playerStatus.isInvincible = true;
+                ghost.makeGhost = true;
+            }
             yield return null;
         }
         ghost.makeGhost = false;

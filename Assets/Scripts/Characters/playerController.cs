@@ -111,6 +111,7 @@ public class playerController : MonoBehaviour
     public void MoveToTarget(Vector3 target)
     {
         StopAllCoroutines();
+        isAttacking = false;
         if (isDead) return;
         agent.stoppingDistance = stopDistance;
         agent.isStopped = false;
@@ -150,8 +151,7 @@ public class playerController : MonoBehaviour
         }
 
         // Wait until the attack animation is finished before resetting isAttacking
-        yield return new WaitForSeconds(playerAnimator.GetCurrentAnimatorStateInfo(0).length);
-
+        yield return new WaitForSeconds(0.6f);
         isAttacking = false;
     }
 

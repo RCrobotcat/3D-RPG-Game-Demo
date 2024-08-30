@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class playerController : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
     private Animator playerAnimator;
 
     private GameObject attackTarget;
@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour
     private float stopDistance;
 
     bool isDead;
+    bool isAttacking;
 
     private CharacterStatus characterStatus;
 
@@ -60,7 +61,7 @@ public class playerController : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         Vector3 inputDirection = new Vector3(horizontal, 0, vertical);
-        if (inputDirection != Vector3.zero)
+        if (inputDirection != Vector3.zero && !isAttacking)
         {
             Vector3 CamRelativeMove = ConvertToCameraSpace(inputDirection);
             MovePlayer(CamRelativeMove);
@@ -76,7 +77,7 @@ public class playerController : MonoBehaviour
         lastAttackTime -= Time.deltaTime;
     }
 
-    private void MovePlayer(Vector3 inputDirection)
+    public void MovePlayer(Vector3 inputDirection)
     {
         Vector3 targetPosition = transform.position + inputDirection;
         MoveToTarget(targetPosition);
@@ -138,16 +139,22 @@ public class playerController : MonoBehaviour
             agent.destination = attackTarget.transform.position;
             yield return null;
         }
+        isAttacking = true;
         agent.isStopped = true;
 
-        // Implement attack logic
         if (lastAttackTime < 0)
         {
             playerAnimator.SetBool("Critical", characterStatus.isCritical);
             playerAnimator.SetTrigger("Attack");
             lastAttackTime = 0.5f; // reset attack cooldown time
         }
+
+        // Wait until the attack animation is finished before resetting isAttacking
+        yield return new WaitForSeconds(playerAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        isAttacking = false;
     }
+
 
     // Animation Event
     public void Hit()

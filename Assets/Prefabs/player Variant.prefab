@@ -1742,8 +1742,9 @@ MonoBehaviour:
   templateData: {fileID: 11400000, guid: bacea662eb6c4b14780a4aeb6f327712, type: 2}
   characterData: {fileID: 0}
   attackData: {fileID: 11400000, guid: 2d413ab3cb0e6c8408caea70e656c33a, type: 2}
-  isCritical: 0
   isInvincible: 0
+  WeaponSlot: {fileID: 3725059177539017550}
+  isCritical: 0
 --- !u!54 &2384620122131356836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1803,6 +1804,11 @@ MonoBehaviour:
 --- !u!4 &3725059177539017420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+  m_PrefabInstance: {fileID: 5140350598042243644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3725059177539017550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8422892626600249714, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
   m_PrefabInstance: {fileID: 5140350598042243644}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4632561250190481186 stripped

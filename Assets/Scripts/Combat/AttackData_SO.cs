@@ -14,4 +14,15 @@ public class AttackData_SO : ScriptableObject
     // Critical Hit
     public float criticalMultiplier; // 
     public float criticalChance;
+
+    public void ApplyWeaponData(AttackData_SO weapon)
+    {
+        attackRange = weapon.attackRange;
+        skillRange = weapon.skillRange;
+        coolDown = weapon.coolDown;
+        minDamage = weapon.minDamage;
+        maxDamage = weapon.maxDamage;
+        criticalMultiplier = weapon.criticalMultiplier;
+        criticalChance = weapon.criticalChance;
+    }
 }

@@ -8,17 +8,25 @@ public class CharacterStatus : MonoBehaviour
     public event Action<int, int> updateHealthBarOnAttack;
     public CharacterData_SO templateData;
     public CharacterData_SO characterData;
+
     public AttackData_SO attackData;
+    private AttackData_SO baseAttackData;
+
+    public bool isInvincible;
+
+    [Header("Weapon")]
+    public Transform WeaponSlot;
 
     [HideInInspector]
     public bool isCritical;
-    public bool isInvincible;
 
     private void Awake()
     {
         // duplicate the template data to the character data
         if (templateData != null)
             characterData = Instantiate(templateData);
+
+        baseAttackData = Instantiate(attackData);
     }
 
     #region Read From ScriptableObject Data_SO
@@ -125,5 +133,34 @@ public class CharacterStatus : MonoBehaviour
         return (int)coreDamage;
     }
 
+    #endregion
+
+    #region Equip Weapon
+    public void SwitchWeapon(ItemData_SO weapon)
+    {
+        UnEquipWeapon();
+        EquipWeapon(weapon);
+    }
+
+    public void EquipWeapon(ItemData_SO weapon)
+    {
+        if (weapon.WeaponPrefab != null)
+            Instantiate(weapon.WeaponPrefab, WeaponSlot);
+
+        // Add weapon stats to the player
+        attackData.ApplyWeaponData(weapon.WeaponData);
+    }
+
+    public void UnEquipWeapon()
+    {
+        if (WeaponSlot.childCount != 0)
+        {
+            for (int i = 0; i < WeaponSlot.childCount; i++)
+            {
+                Destroy(WeaponSlot.GetChild(i).gameObject);
+            }
+        }
+        attackData.ApplyWeaponData(baseAttackData);
+    }
     #endregion
 }

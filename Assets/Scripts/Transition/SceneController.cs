@@ -80,7 +80,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObserver
 
     public void TransitionToFirstLevel()
     {
-        StartCoroutine(LoadLevel("SampleScene"));
+        StartCoroutine(LoadLevel("Game"));
     }
 
     public void ContinueGame()

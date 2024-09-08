@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 /*using UnityEngine.Events;*/
 using System;
+using UnityEngine.EventSystems;
 
 /*[System.Serializable]
 public class EventVector3 : UnityEvent<Vector3> { }*/
@@ -23,13 +24,15 @@ public class MouseManager : Singleton<MouseManager>
         DontDestroyOnLoad(this);
     }
 
-    private void Update()
+    void Update()
     {
         SetCursurTexture();
+        if (InteractWithUI()) // if mouse is interacting with UI, return
+            return;
         MouseControl();
     }
 
-    void SetCursurTexture()
+    public void SetCursurTexture()
     {
         // get ray from camera to mouse position
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -50,6 +53,9 @@ public class MouseManager : Singleton<MouseManager>
                     break;
                 case "Portal":
                     Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
+                    break;
+                case "Item":
+                    Cursor.SetCursor(point, new Vector2(16, 16), CursorMode.Auto);
                     break;
 
                 default:
@@ -83,6 +89,20 @@ public class MouseManager : Singleton<MouseManager>
                 // if clicked on Attackable, invoke event
                 OnMouseClicked?.Invoke(hitInfo.point);
             }
+            if (hitInfo.collider.gameObject.CompareTag("Item"))
+            {
+                // if clicked on Attackable, invoke event
+                OnMouseClicked?.Invoke(hitInfo.point);
+            }
         }
+    }
+
+    bool InteractWithUI()
+    {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+        else return false;
     }
 }

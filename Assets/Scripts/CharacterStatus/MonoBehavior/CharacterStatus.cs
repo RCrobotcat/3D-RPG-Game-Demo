@@ -163,4 +163,13 @@ public class CharacterStatus : MonoBehaviour
         attackData.ApplyWeaponData(baseAttackData);
     }
     #endregion
+
+    #region Apply Data Change
+    public void ApplyHealth(int amount)
+    {
+        if (currentHealth + amount <= maxHealth)
+            currentHealth += amount;
+        else currentHealth = maxHealth;
+    }
+    #endregion
 }

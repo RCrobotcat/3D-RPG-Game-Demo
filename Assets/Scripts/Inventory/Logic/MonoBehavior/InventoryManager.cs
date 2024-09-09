@@ -27,11 +27,27 @@ public class InventoryManager : Singleton<InventoryManager>
     public Canvas dragCanvas;
     public DragData currentDrag;
 
+    [Header("UI Panels")]
+    public GameObject BagPanel;
+    public GameObject EquipmentPanel;
+
+    bool isOpen = false;
+
     void Start()
     {
         inventoryUI.RefreshUI();
         actionUI.RefreshUI();
         equipmentUI.RefreshUI();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isOpen = !isOpen;
+            BagPanel.SetActive(isOpen);
+            EquipmentPanel.SetActive(isOpen);
+        }
     }
 
     #region Judge the item being dragged is inside the range of the target slot

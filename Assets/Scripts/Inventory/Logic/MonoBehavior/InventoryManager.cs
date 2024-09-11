@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
@@ -31,6 +32,10 @@ public class InventoryManager : Singleton<InventoryManager>
     public GameObject BagPanel;
     public GameObject EquipmentPanel;
 
+    [Header("Status Text")]
+    public Text healthText;
+    public Text attaclText;
+
     bool isOpen = false;
 
     void Start()
@@ -48,6 +53,16 @@ public class InventoryManager : Singleton<InventoryManager>
             BagPanel.SetActive(isOpen);
             EquipmentPanel.SetActive(isOpen);
         }
+
+        UpdateStatusText(GameManager.Instance.playerStatus.currentHealth,
+            GameManager.Instance.playerStatus.attackData.minDamage,
+            GameManager.Instance.playerStatus.attackData.maxDamage);
+    }
+
+    public void UpdateStatusText(int health, int min, int max)
+    {
+        healthText.text = health.ToString("00");
+        attaclText.text = min + " - " + max;
     }
 
     #region Judge the item being dragged is inside the range of the target slot

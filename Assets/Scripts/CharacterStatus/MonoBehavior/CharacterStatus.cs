@@ -149,6 +149,7 @@ public class CharacterStatus : MonoBehaviour
 
         // Add weapon stats to the player
         attackData.ApplyWeaponData(weapon.WeaponData);
+        // InventoryManager.Instance.UpdateStatusText(maxHealth, attackData.maxDamage, attackData.minDamage);
     }
 
     public void UnEquipWeapon()

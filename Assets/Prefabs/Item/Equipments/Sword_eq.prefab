@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword_eq
       objectReference: {fileID: 0}
+    - target: {fileID: 3336204350343621318, guid: 394441ef3d567164781e945591b5124c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3336204350344115942, guid: 394441ef3d567164781e945591b5124c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

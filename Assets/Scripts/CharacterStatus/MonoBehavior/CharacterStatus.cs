@@ -11,6 +11,7 @@ public class CharacterStatus : MonoBehaviour
 
     public AttackData_SO attackData;
     private AttackData_SO baseAttackData;
+    private RuntimeAnimatorController baseAnimator;
 
     public bool isInvincible;
 
@@ -27,6 +28,8 @@ public class CharacterStatus : MonoBehaviour
             characterData = Instantiate(templateData);
 
         baseAttackData = Instantiate(attackData);
+
+        baseAnimator = GetComponent<Animator>().runtimeAnimatorController;
     }
 
     #region Read From ScriptableObject Data_SO
@@ -149,6 +152,9 @@ public class CharacterStatus : MonoBehaviour
 
         // Add weapon stats to the player
         attackData.ApplyWeaponData(weapon.WeaponData);
+
+        GetComponent<Animator>().runtimeAnimatorController = weapon.WeaponAnimator;
+
         // InventoryManager.Instance.UpdateStatusText(maxHealth, attackData.maxDamage, attackData.minDamage);
     }
 
@@ -162,6 +168,8 @@ public class CharacterStatus : MonoBehaviour
             }
         }
         attackData.ApplyWeaponData(baseAttackData);
+
+        GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
     }
     #endregion
 

@@ -20,6 +20,7 @@ public class ItemData_SO : ScriptableObject
     [Header("Weapon")]
     public GameObject WeaponPrefab;
     public AttackData_SO WeaponData;
+    public AnimatorOverrideController WeaponAnimator;
 
     [Header("Usable Item")]
     public UsableItemData_SO usableItemData;

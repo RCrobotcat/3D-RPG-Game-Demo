@@ -36,6 +36,9 @@ public class InventoryManager : Singleton<InventoryManager>
     public Text healthText;
     public Text attaclText;
 
+    [Header("Tooltip")]
+    public ItemTooptip itemTooltip;
+
     bool isOpen = false;
 
     void Start()

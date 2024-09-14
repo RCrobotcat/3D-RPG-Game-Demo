@@ -446,7 +446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightRadius: 8
   isGuard: 1
-  speed: 0
   lookAtTime: 3
   patrolRange: 8
   playerCam: {fileID: 0}
@@ -487,6 +486,8 @@ MonoBehaviour:
   templateData: {fileID: 11400000, guid: 80240a89d9f2d674bac8a6937d724788, type: 2}
   characterData: {fileID: 0}
   attackData: {fileID: 11400000, guid: a23819833b593b8488ae6905ca95d7b0, type: 2}
+  isInvincible: 0
+  WeaponSlot: {fileID: 0}
   isCritical: 0
 --- !u!1 &7446019047767849115
 GameObject:

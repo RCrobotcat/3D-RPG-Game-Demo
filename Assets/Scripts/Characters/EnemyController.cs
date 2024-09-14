@@ -85,6 +85,9 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     {
         if (!GameManager.Instance.IsInitialized) return;
         GameManager.Instance.RemoveObserver(this);
+
+        if (GetComponent<LootSpawner>() && isDead)
+            GetComponent<LootSpawner>().SpawnLoot();
     }
 
     private void Update()

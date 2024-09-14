@@ -200,8 +200,7 @@ PrefabInstance:
       value: 78.01291
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6124472431884420337, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
-    - {fileID: 1051090931576336256, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7498142190150400792, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
@@ -214,6 +213,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5037864464683879738}
+    - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3495054089538444320}
   m_SourcePrefab: {fileID: 100100000, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
 --- !u!1 &8187272853822994347 stripped
 GameObject:
@@ -235,6 +237,8 @@ MonoBehaviour:
   templateData: {fileID: 11400000, guid: 80240a89d9f2d674bac8a6937d724788, type: 2}
   characterData: {fileID: 0}
   attackData: {fileID: 11400000, guid: a23819833b593b8488ae6905ca95d7b0, type: 2}
+  isInvincible: 0
+  WeaponSlot: {fileID: 0}
   isCritical: 0
 --- !u!114 &5037864464683879738
 MonoBehaviour:
@@ -252,6 +256,21 @@ MonoBehaviour:
   HealthBarPos: {fileID: 8227722319001786280}
   alwaysVisible: 0
   visibleTime: 3
+--- !u!114 &3495054089538444320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8187272853822994347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40486dafe2d5294e8c8fab4b6afa866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootItems:
+  - item: {fileID: 3396340632841680784, guid: 95ac8833026ae854c844442a375d54e4, type: 3}
+    weight: 1
 --- !u!4 &8850938744352615697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7498142190150400792, guid: a4ec793513574cd49719c4055b630e2b, type: 3}

@@ -32,21 +32,18 @@ public class SaveManager : Singleton<SaveManager>
         {
             SavePlayerData();
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadPlayerData();
-        }
     }
 
     public void SavePlayerData()
     {
         Save(GameManager.Instance.playerStatus.characterData, GameManager.Instance.playerStatus.characterData.name);
+        InventoryManager.Instance.SaveData();
     }
 
     public void LoadPlayerData()
     {
         Load(GameManager.Instance.playerStatus.characterData, GameManager.Instance.playerStatus.characterData.name);
+        InventoryManager.Instance.LoadData();
     }
 
     public void LoadPlayerPosition()

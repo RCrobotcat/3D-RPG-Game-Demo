@@ -24,7 +24,7 @@ public class LootSpawner : MonoBehaviour
             if (currentValue <= lootItems[i].weight)
             {
                 GameObject obj = Instantiate(lootItems[i].item);
-                obj.transform.position = transform.position + Vector3.up * 3;
+                obj.transform.position = transform.position + Vector3.up * 2;
                 break;
             }
         }

@@ -44,6 +44,8 @@ public class SceneController : Singleton<SceneController>, IEndGameObserver
     IEnumerator Transition(string SceneName, TransitionDestination.DestinationTag destinationTag)
     {
         SaveManager.Instance.SavePlayerData();
+        InventoryManager.Instance.SaveData();
+
         if (SceneName != SceneManager.GetActiveScene().name)
         {
             yield return SceneManager.LoadSceneAsync(SceneName);
@@ -80,7 +82,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObserver
 
     public void TransitionToFirstLevel()
     {
-        StartCoroutine(LoadLevel("Game"));
+        StartCoroutine(LoadLevel("GameScene"));
     }
 
     public void ContinueGame()

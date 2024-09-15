@@ -47,6 +47,6 @@ public class ItemTooptip : MonoBehaviour
         else if (Screen.width - mousePos.x < width)
             rectTransform.position = mousePos + Vector3.right * width * 0.6f;
         else
-            rectTransform.position = mousePos + Vector3.left * height * 0.7f;
+            rectTransform.position = mousePos + Vector3.left * width * 0.6f;
     }
 }

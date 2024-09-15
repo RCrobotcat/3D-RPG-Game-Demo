@@ -11,6 +11,8 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     SlotHolder currentHolder;
     SlotHolder targetHolder;
 
+    bool Swapped;
+
     void Awake()
     {
         currentItemUI = GetComponent<ItemUI>();
@@ -19,6 +21,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Swapped = false;
         InventoryManager.Instance.currentDrag = new InventoryManager.DragData();
         InventoryManager.Instance.currentDrag.originalHolder = GetComponentInParent<SlotHolder>();
         InventoryManager.Instance.currentDrag.originalParent = (RectTransform)transform.parent;
@@ -43,27 +46,31 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 else
                     targetHolder = eventData.pointerEnter.gameObject.GetComponentInParent<SlotHolder>();
 
-                switch (targetHolder.slotType)
-                {
-                    case SlotType.BAG:
-                        SwapItem();
-                        break;
-                    case SlotType.ACTION:
-                        if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Usable)
+                if (targetHolder != InventoryManager.Instance.currentDrag.originalHolder)
+                    switch (targetHolder.slotType)
+                    {
+                        case SlotType.BAG:
                             SwapItem();
-                        break;
-                    case SlotType.ARMOR:
-                        if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Armor)
-                            SwapItem();
-                        break;
-                    case SlotType.WEAPON:
-                        if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Weapon)
-                            SwapItem();
-                        break;
-                }
+                            break;
+                        case SlotType.ACTION:
+                            if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Usable)
+                                SwapItem();
+                            break;
+                        case SlotType.ARMOR:
+                            if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Armor)
+                                SwapItem();
+                            break;
+                        case SlotType.WEAPON:
+                            if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Weapon)
+                                SwapItem();
+                            break;
+                    }
 
-                currentHolder.UpdateItem();
-                targetHolder.UpdateItem();
+                if (Swapped)
+                {
+                    currentHolder.UpdateItem();
+                    targetHolder.UpdateItem();
+                }
             }
         }
         transform.SetParent(InventoryManager.Instance.currentDrag.originalParent);
@@ -91,5 +98,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = targetItem;
             targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index] = tempItem;
         }
+
+        Swapped = true;
     }
 }

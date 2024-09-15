@@ -23,7 +23,7 @@ public class SaveManager : Singleton<SaveManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
         {
             SceneController.Instance.ReturnToMainMenu();
         }

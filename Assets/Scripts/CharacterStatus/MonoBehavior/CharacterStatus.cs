@@ -9,7 +9,8 @@ public class CharacterStatus : MonoBehaviour
     public CharacterData_SO templateData;
     [HideInInspector] public CharacterData_SO characterData;
 
-    public AttackData_SO attackData;
+    public AttackData_SO templateAttackData;
+    [HideInInspector] public AttackData_SO attackData;
     private AttackData_SO baseAttackData;
     private RuntimeAnimatorController baseAnimator;
 
@@ -29,8 +30,10 @@ public class CharacterStatus : MonoBehaviour
         // duplicate the template data to the character data
         if (templateData != null)
             characterData = Instantiate(templateData);
+        if (templateAttackData != null)
+            attackData = Instantiate(templateAttackData);
 
-        baseAttackData = Instantiate(attackData);
+        baseAttackData = Instantiate(templateAttackData);
 
         baseAnimator = GetComponent<Animator>().runtimeAnimatorController;
     }
@@ -172,7 +175,8 @@ public class CharacterStatus : MonoBehaviour
         }
         attackData.ApplyWeaponData(baseAttackData);
 
-        GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
+        if (WeaponSlot.childCount == 0 && ArmorSlot.childCount == 0)
+            GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
     }
     #endregion
 
@@ -192,11 +196,12 @@ public class CharacterStatus : MonoBehaviour
 
         GetComponent<Animator>().runtimeAnimatorController = armor.ArmorAnimator;
     }
+
     public void UnEquipArmor()
     {
         if (ArmorSlot.childCount != 0)
         {
-            for (int i = 0; i < WeaponSlot.childCount; i++)
+            for (int i = 0; i < ArmorSlot.childCount; i++)
             {
                 Destroy(ArmorSlot.GetChild(i).gameObject);
             }
@@ -205,7 +210,8 @@ public class CharacterStatus : MonoBehaviour
         characterData.baseDefence = templateData.baseDefence;
         characterData.currentDefence = characterData.baseDefence;
 
-        GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
+        if (WeaponSlot.childCount == 0 && ArmorSlot.childCount == 0)
+            GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
     }
     #endregion
 

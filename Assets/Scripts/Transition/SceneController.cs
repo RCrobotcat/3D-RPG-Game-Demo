@@ -87,7 +87,8 @@ public class SceneController : Singleton<SceneController>, IEndGameObserver
 
     public void ContinueGame()
     {
-        StartCoroutine(LoadLevel(SaveManager.Instance.SceneName));
+        if (SaveManager.Instance.SceneName != "")
+            StartCoroutine(LoadLevel(SaveManager.Instance.SceneName));
     }
 
     public void ReturnToMainMenu()

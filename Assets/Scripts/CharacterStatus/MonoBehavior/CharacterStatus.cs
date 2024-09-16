@@ -38,6 +38,12 @@ public class CharacterStatus : MonoBehaviour
         baseAnimator = GetComponent<Animator>().runtimeAnimatorController;
     }
 
+    void Update()
+    {
+        if (WeaponSlot.childCount == 0 && ArmorSlot.childCount == 0)
+            GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
+    }
+
     #region Read From ScriptableObject Data_SO
     // get: means that you can only get the value of the variable;(read only) -> characterData.maxHealth
     // set: means that you can only set the value of the variable;(write only) -> characterData.maxHealth = 100;
@@ -174,9 +180,6 @@ public class CharacterStatus : MonoBehaviour
             }
         }
         attackData.ApplyWeaponData(baseAttackData);
-
-        if (WeaponSlot.childCount == 0 && ArmorSlot.childCount == 0)
-            GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
     }
     #endregion
 
@@ -209,9 +212,6 @@ public class CharacterStatus : MonoBehaviour
 
         characterData.baseDefence = templateData.baseDefence;
         characterData.currentDefence = characterData.baseDefence;
-
-        if (WeaponSlot.childCount == 0 && ArmorSlot.childCount == 0)
-            GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
     }
     #endregion
 

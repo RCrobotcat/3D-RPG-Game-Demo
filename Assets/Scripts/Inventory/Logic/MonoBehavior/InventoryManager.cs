@@ -40,6 +40,7 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("Status Text")]
     public Text healthText;
     public Text attaclText;
+    public Text DefenceText;
 
     [Header("Tooltip")]
     public ItemTooptip itemTooltip;
@@ -76,7 +77,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
         UpdateStatusText(GameManager.Instance.playerStatus.currentHealth,
             GameManager.Instance.playerStatus.attackData.minDamage,
-            GameManager.Instance.playerStatus.attackData.maxDamage);
+            GameManager.Instance.playerStatus.attackData.maxDamage,
+            GameManager.Instance.playerStatus.currentDefence);
     }
 
     public void SaveData()
@@ -93,10 +95,11 @@ public class InventoryManager : Singleton<InventoryManager>
         SaveManager.Instance.Load(equipmentData, equipmentData.name);
     }
 
-    public void UpdateStatusText(int health, int min, int max)
+    public void UpdateStatusText(int health, int min, int max, int defence)
     {
         healthText.text = health.ToString("00");
         attaclText.text = min + " - " + max;
+        DefenceText.text = defence.ToString("00");
     }
 
     #region Judge the item being dragged is inside the range of the target slot

@@ -48,4 +48,11 @@ public class CharacterData_SO : ScriptableObject
             + " Base Defence: " + baseDefence + " Base Exp: " + baseExp);
         // TODO: Level Up Effect(UI Animation)
     }
+
+    // Apply Armor Data
+    public void ApplyDefenceData(DefendData_SO armor)
+    {
+        baseDefence = armor.currentDefence;
+        currentDefence = baseDefence;
+    }
 }

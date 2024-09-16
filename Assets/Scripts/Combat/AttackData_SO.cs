@@ -12,7 +12,7 @@ public class AttackData_SO : ScriptableObject
     public int maxDamage;
 
     // Critical Hit
-    public float criticalMultiplier; // 
+    public float criticalMultiplier;
     public float criticalChance;
 
     public void ApplyWeaponData(AttackData_SO weapon)

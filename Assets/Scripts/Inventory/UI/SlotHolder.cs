@@ -58,6 +58,10 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
                 break;
             case SlotType.ARMOR:
                 itemUI.Bag = InventoryManager.Instance.equipmentData;
+                if (itemUI.Bag.items[itemUI.Index].itemData != null)
+                    GameManager.Instance.playerStatus.SwitchArmor(itemUI.Bag.items[itemUI.Index].itemData);
+                else
+                    GameManager.Instance.playerStatus.UnEquipArmor();
                 break;
             case SlotType.ACTION:
                 itemUI.Bag = InventoryManager.Instance.actionData;

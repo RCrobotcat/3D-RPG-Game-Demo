@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba1d6fcbd45d75479cc5826406c5d7c, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  itemType: 2
+  itemName: Shield
+  itemIcon: {fileID: 21300000, guid: 2e9225272efce424c9589c4e258589d1, type: 3}
+  itemAmount: 1
+  description: Simple Shield.
+  stackable: 0
+  WeaponPrefab: {fileID: 0}
+  WeaponData: {fileID: 0}
+  WeaponAnimator: {fileID: 0}
+  ArmorPrefab: {fileID: 3647833116795616444, guid: 464870724c336004492fda200106a4d9, type: 3}
+  ArmorDefenceData: {fileID: 11400000, guid: 8b30810004995c4458af3e9083f23604, type: 2}
+  ArmorAnimator: {fileID: 22100000, guid: c7095606220895c49a981a45e7f4d580, type: 2}
+  usableItemData: {fileID: 0}

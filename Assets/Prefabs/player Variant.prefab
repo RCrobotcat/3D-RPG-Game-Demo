@@ -1887,6 +1887,7 @@ MonoBehaviour:
   attackData: {fileID: 11400000, guid: 2d413ab3cb0e6c8408caea70e656c33a, type: 2}
   isInvincible: 0
   WeaponSlot: {fileID: 3725059177539017550}
+  ArmorSlot: {fileID: 3725059177539017376}
   isCritical: 0
 --- !u!54 &2384620122131356836
 Rigidbody:
@@ -1944,6 +1945,11 @@ MonoBehaviour:
   ghostDelay: 0.05
   ghost: {fileID: 2720976669749239532, guid: 47eae91295fd514439b6962ba56f1e40, type: 3}
   makeGhost: 0
+--- !u!4 &3725059177539017376 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8422892626600249500, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+  m_PrefabInstance: {fileID: 5140350598042243644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3725059177539017420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}

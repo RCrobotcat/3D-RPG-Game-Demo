@@ -7,7 +7,7 @@ public class CharacterStatus : MonoBehaviour
 {
     public event Action<int, int> updateHealthBarOnAttack;
     public CharacterData_SO templateData;
-    public CharacterData_SO characterData;
+    [HideInInspector] public CharacterData_SO characterData;
 
     public AttackData_SO attackData;
     private AttackData_SO baseAttackData;
@@ -17,6 +17,9 @@ public class CharacterStatus : MonoBehaviour
 
     [Header("Weapon")]
     public Transform WeaponSlot;
+
+    [Header("Armor")]
+    public Transform ArmorSlot;
 
     [HideInInspector]
     public bool isCritical;
@@ -168,6 +171,39 @@ public class CharacterStatus : MonoBehaviour
             }
         }
         attackData.ApplyWeaponData(baseAttackData);
+
+        GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
+    }
+    #endregion
+
+    #region Equip Armor
+    public void SwitchArmor(ItemData_SO armor)
+    {
+        UnEquipArmor();
+        EquipArmor(armor);
+    }
+
+    public void EquipArmor(ItemData_SO armor)
+    {
+        if (armor.ArmorPrefab != null)
+            Instantiate(armor.ArmorPrefab, ArmorSlot);
+
+        characterData.ApplyDefenceData(armor.ArmorDefenceData);
+
+        GetComponent<Animator>().runtimeAnimatorController = armor.ArmorAnimator;
+    }
+    public void UnEquipArmor()
+    {
+        if (ArmorSlot.childCount != 0)
+        {
+            for (int i = 0; i < WeaponSlot.childCount; i++)
+            {
+                Destroy(ArmorSlot.GetChild(i).gameObject);
+            }
+        }
+
+        characterData.baseDefence = templateData.baseDefence;
+        characterData.currentDefence = characterData.baseDefence;
 
         GetComponent<Animator>().runtimeAnimatorController = baseAnimator;
     }

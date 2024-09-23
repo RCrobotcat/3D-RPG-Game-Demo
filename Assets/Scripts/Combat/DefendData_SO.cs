@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Defend Data", menuName = "Defend/Data")]
 public class DefendData_SO : ScriptableObject
 {
-    public int currentDefence;
+    public int AddDefence;
 }

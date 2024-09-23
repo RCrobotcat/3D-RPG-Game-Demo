@@ -52,7 +52,8 @@ public class CharacterData_SO : ScriptableObject
     // Apply Armor Data
     public void ApplyDefenceData(DefendData_SO armor)
     {
-        baseDefence = armor.currentDefence;
+        baseDefence += armor.AddDefence;
         currentDefence = baseDefence;
+        Debug.Log("Apply Added Defence Data: " + armor.AddDefence);
     }
 }

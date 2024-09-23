@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbd1cdacdbe0664eb97d2dd5029f5f4, type: 3}
   m_Name: ShieldDefenceData
   m_EditorClassIdentifier: 
-  currentDefence: 4
+  AddDefence: 2

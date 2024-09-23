@@ -22,6 +22,8 @@ public class CharacterStatus : MonoBehaviour
     [Header("Armor")]
     public Transform ArmorSlot;
 
+    DefendData_SO currentArmorData;
+
     [HideInInspector]
     public bool isCritical;
 
@@ -196,6 +198,7 @@ public class CharacterStatus : MonoBehaviour
             Instantiate(armor.ArmorPrefab, ArmorSlot);
 
         characterData.ApplyDefenceData(armor.ArmorDefenceData);
+        currentArmorData = armor.ArmorDefenceData;
 
         GetComponent<Animator>().runtimeAnimatorController = armor.ArmorAnimator;
     }
@@ -210,8 +213,12 @@ public class CharacterStatus : MonoBehaviour
             }
         }
 
-        characterData.baseDefence = templateData.baseDefence;
-        characterData.currentDefence = characterData.baseDefence;
+        if (currentArmorData != null)
+        {
+            characterData.baseDefence -= currentArmorData.AddDefence;
+            characterData.currentDefence = characterData.baseDefence;
+            currentArmorData = null;
+        }
     }
     #endregion
 

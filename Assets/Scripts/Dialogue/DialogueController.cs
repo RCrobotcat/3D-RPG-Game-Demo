@@ -24,7 +24,7 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        if (canTalk && Input.GetKeyDown(KeyCode.E))
+        if (canTalk && Input.GetKeyDown(KeyCode.X))
         {
             OpenDialogue();
         }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc638fca8c7420b419d89af00b56361c, type: 3}
+  m_Name: HeroQuest
+  m_EditorClassIdentifier: 
+  questName: Eliminate enemies.
+  description: Eliminate all the slimes and rock giant, and you'll get some rewards.
+  isStarted: 0
+  isCompleted: 0
+  isFinished: 0
+  questRequirements:
+  - name: Slime
+    requiredAmount: 2
+    currentAmount: 0
+  - name: Golem
+    requiredAmount: 1
+    currentAmount: 0

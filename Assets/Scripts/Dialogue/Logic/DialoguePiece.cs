@@ -10,5 +10,7 @@ public class DialoguePiece
     [TextArea]
     public string text;
 
+    public QuestData_SO questData;
+
     public List<DialogueOption> dialogueOption = new List<DialogueOption>();
 }

@@ -24,3 +24,6 @@ MonoBehaviour:
   - name: Golem
     requiredAmount: 1
     currentAmount: 0
+  questRewards:
+  - itemData: {fileID: 11400000, guid: b9192f51a213ee94c81cb8d0e660d568, type: 2}
+    amount: 1

@@ -21,4 +21,5 @@ public class QuestData_SO : ScriptableObject
     public bool isFinished; // is the quest finished(after completed and received rewards)
 
     public List<QuestRequirement> questRequirements = new List<QuestRequirement>();
+    public List<InventoryItem> questRewards = new List<InventoryItem>();
 }

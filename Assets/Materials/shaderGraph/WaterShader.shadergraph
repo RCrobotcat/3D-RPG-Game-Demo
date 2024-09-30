@@ -29,6 +29,9 @@
         },
         {
             "m_Id": "c9262ea562fc451a88a644c307f79d0e"
+        },
+        {
+            "m_Id": "bb39822f82ee4d9e8974eea5dae3f6fc"
         }
     ],
     "m_Keywords": [],
@@ -185,6 +188,9 @@
         },
         {
             "m_Id": "f84ab32421df49ce9bd1df5cc6e33ce3"
+        },
+        {
+            "m_Id": "be59f1289df24027b3f00c67f6e090ed"
         }
     ],
     "m_GroupDatas": [],
@@ -627,6 +633,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "be59f1289df24027b3f00c67f6e090ed"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "f84ab32421df49ce9bd1df5cc6e33ce3"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "c05cfe50014c471cba89a559296abce0"
                 },
                 "m_SlotId": 2
@@ -906,6 +926,21 @@
         "x": 0.0,
         "y": 0.0
     },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "043b196516494b15aaa8f2f5d7596f6f",
+    "m_Id": 0,
+    "m_DisplayName": "Divide",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
     "m_Labels": []
 }
 
@@ -1765,6 +1800,9 @@
         },
         {
             "m_Id": "c9262ea562fc451a88a644c307f79d0e"
+        },
+        {
+            "m_Id": "bb39822f82ee4d9e8974eea5dae3f6fc"
         }
     ]
 }
@@ -3482,7 +3520,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 50.0,
+        "x": 500.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -4660,6 +4698,34 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "bb39822f82ee4d9e8974eea5dae3f6fc",
+    "m_Guid": {
+        "m_GuidSerialized": "feb0f908-9975-4cb1-8398-cfd15da4682e"
+    },
+    "m_Name": "Divide",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Divide",
+    "m_DefaultReferenceName": "_Divide",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 1.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "bcca4bd8465e4aed9179b53fcffa6789",
@@ -4672,6 +4738,42 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "be59f1289df24027b3f00c67f6e090ed",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -2571.0,
+            "y": -1517.0001220703125,
+            "width": 108.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "043b196516494b15aaa8f2f5d7596f6f"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "bb39822f82ee4d9e8974eea5dae3f6fc"
+    }
 }
 
 {
@@ -5919,10 +6021,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -524.0,
-            "y": 240.0,
-            "width": 120.0,
-            "height": 149.0
+            "x": -458.9999084472656,
+            "y": 224.00001525878907,
+            "width": 119.99981689453125,
+            "height": 148.99989318847657
         }
     },
     "m_Slots": [

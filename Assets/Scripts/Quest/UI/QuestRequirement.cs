@@ -13,4 +13,10 @@ public class QuestRequirement : MonoBehaviour
         requirementName = GetComponent<Text>();
         progressNum = transform.GetChild(0).GetComponent<Text>();
     }
+
+    public void SetUpRequirements(string name, int amount, int currentAmount)
+    {
+        requirementName.text = name;
+        progressNum.text = currentAmount.ToString() + "/" + amount.ToString();
+    }
 }

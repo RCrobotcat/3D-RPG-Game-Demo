@@ -40,6 +40,8 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
                 itemUI.Bag.items[itemUI.Index].amount--; // decrease the amount by 1
             }
         UpdateItem();
+
+        QuestManager.Instance.UpdateQuestProgress(itemUI.GetItem().itemName, -1);
     }
 
     public void UpdateItem()

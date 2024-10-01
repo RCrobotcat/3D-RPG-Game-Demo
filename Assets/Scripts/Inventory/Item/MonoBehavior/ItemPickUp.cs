@@ -13,6 +13,9 @@ public class ItemPickUp : MonoBehaviour
             InventoryManager.Instance.inventoryData.AddItem(itemData, itemData.itemAmount);
             InventoryManager.Instance.inventoryUI.RefreshUI();
 
+            if (QuestManager.Instance.IsInitialized)
+                QuestManager.Instance.UpdateQuestProgress(itemData.itemName, itemData.itemAmount);
+
             // equip weapon
             // GameManager.Instance.playerStatus.EquipWeapon(itemData);
 

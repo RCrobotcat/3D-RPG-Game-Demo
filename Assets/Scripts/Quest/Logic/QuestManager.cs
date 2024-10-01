@@ -28,4 +28,18 @@ public class QuestManager : Singleton<QuestManager>
     {
         return questTasks.Find(q => q.questData.questName == data.questName);
     }
+
+    // When kill a monster or collect an item, etc, update the quest progress
+    public void UpdateQuestProgress(string requireName, int amount)
+    {
+        foreach (var task in questTasks)
+        {
+            var matchTask = task.questData.questRequirements.Find(r => r.name == requireName);
+            if (matchTask != null)
+                matchTask.currentAmount += amount;
+
+            // check if the quest is completed.
+            task.questData.CheckTaskProgress();
+        }
+    }
 }

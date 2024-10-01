@@ -48,7 +48,7 @@ Material:
     - _Depth: -1.81
     - _Displacement: 0.3
     - _Distance: 0
-    - _Divide: 1000
+    - _Divide: 10000
     - _NormalStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0

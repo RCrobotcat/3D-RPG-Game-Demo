@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987381462408817658, guid: 66c0618fc4ad40b44b13cb131702f9b7, type: 3}
       propertyPath: m_Name
-      value: RewardSlot Variant
+      value: RewardSlot
       objectReference: {fileID: 0}
     - target: {fileID: 8794715108323957182, guid: 66c0618fc4ad40b44b13cb131702f9b7, type: 3}
       propertyPath: m_Pivot.x
@@ -100,5 +100,25 @@ PrefabInstance:
     - {fileID: -2255108528775586938, guid: 66c0618fc4ad40b44b13cb131702f9b7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2987381462408817658, guid: 66c0618fc4ad40b44b13cb131702f9b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6496420477203466820}
   m_SourcePrefab: {fileID: 100100000, guid: 66c0618fc4ad40b44b13cb131702f9b7, type: 3}
+--- !u!1 &7327612279098660068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2987381462408817658, guid: 66c0618fc4ad40b44b13cb131702f9b7, type: 3}
+  m_PrefabInstance: {fileID: 5532011438144601886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6496420477203466820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327612279098660068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922f841f34f8f2642851c827126aeb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

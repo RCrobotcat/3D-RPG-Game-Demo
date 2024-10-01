@@ -23,7 +23,7 @@ public class QuestUI : Singleton<QuestUI>
 
     [Header("Rewards")]
     public RectTransform rewardsTransform;
-    public ItemUI questReward;
+    public ItemUI rewardUI;
 
     void Update()
     {
@@ -32,6 +32,9 @@ public class QuestUI : Singleton<QuestUI>
             isOpen = !isOpen;
             questPanel.SetActive(isOpen);
             questContentTxt.text = string.Empty;
+
+            if (!isOpen)
+                itemTooltip.gameObject.SetActive(false);
 
             SetUpQuestList();
         }
@@ -66,5 +69,11 @@ public class QuestUI : Singleton<QuestUI>
             var newReq = Instantiate(questRequirement, requirementsTransform);
             newReq.SetUpRequirements(req.name, req.requiredAmount, req.currentAmount);
         }
+    }
+
+    public void SetUpRewardItem(ItemData_SO itemData, int amount)
+    {
+        var item = Instantiate(rewardUI, rewardsTransform);
+        item.SetUpItemUI(itemData, amount);
     }
 }

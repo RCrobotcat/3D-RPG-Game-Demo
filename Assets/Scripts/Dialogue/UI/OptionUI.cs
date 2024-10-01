@@ -43,6 +43,10 @@ public class OptionUI : MonoBehaviour
                 {
                     QuestManager.Instance.questTasks.Add(newTask);
                     QuestManager.Instance.GetQuestTask(newTask.questData).IsStarted = true;
+
+                    // Update the quest progress
+                    foreach (var reqName in newTask.questData.GetRequiredTargetName())
+                        InventoryManager.Instance.CheckQuestItemInBag(reqName);
                 }
             }
         }

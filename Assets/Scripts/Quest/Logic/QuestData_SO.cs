@@ -32,4 +32,13 @@ public class QuestData_SO : ScriptableObject
         if (isCompleted)
             Debug.Log("Quest Completed!");
     }
+
+    // Get the name of quest requirements
+    public List<string> GetRequiredTargetName()
+    {
+        List<string> targetNameList = new List<string>();
+        foreach (var require in questRequirements)
+            targetNameList.Add(require.name);
+        return targetNameList;
+    }
 }

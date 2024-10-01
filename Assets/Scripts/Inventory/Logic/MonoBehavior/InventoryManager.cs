@@ -142,4 +142,27 @@ public class InventoryManager : Singleton<InventoryManager>
         return false;
     }
     #endregion
+
+    #region Check if the quest item already exists in the inventory, if so, update the quest progress
+    public void CheckQuestItemInBag(string questItemName)
+    {
+        foreach (var item in inventoryData.items)
+        {
+            if (item.itemData != null)
+            {
+                if (item.itemData.itemName == questItemName)
+                    QuestManager.Instance.UpdateQuestProgress(questItemName, item.amount);
+            }
+        }
+
+        foreach (var item in actionData.items)
+        {
+            if (item.itemData != null)
+            {
+                if (item.itemData.itemName == questItemName)
+                    QuestManager.Instance.UpdateQuestProgress(questItemName, item.amount);
+            }
+        }
+    }
+    #endregion
 }

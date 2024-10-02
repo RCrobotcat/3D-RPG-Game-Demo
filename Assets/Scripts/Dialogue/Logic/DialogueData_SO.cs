@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,4 +29,22 @@ public class DialogueData_SO : ScriptableObject
         }
     }
 #endif
+
+    public QuestData_SO GetQuest(string questName)
+    {
+        QuestData_SO currentQuest = null;
+        foreach (var piece in dialoguePieces)
+        {
+            if (piece.questData != null)
+            {
+                if (piece.questData.name == questName)
+                {
+                    currentQuest = piece.questData;
+                    break;
+                }
+            }
+        }
+
+        return currentQuest;
+    }
 }

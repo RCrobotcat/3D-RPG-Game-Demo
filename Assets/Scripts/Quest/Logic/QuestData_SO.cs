@@ -41,4 +41,46 @@ public class QuestData_SO : ScriptableObject
             targetNameList.Add(require.name);
         return targetNameList;
     }
+
+    public void GiveQuestRewards()
+    {
+        foreach (var reward in questRewards)
+        {
+            if (reward.amount < 0)
+            {
+                int requireCount = Mathf.Abs(reward.amount);
+
+                // if the item is in the bag, remove the item from the bag
+                if (InventoryManager.Instance.QuestItemInBag(reward.itemData) != null)
+                {
+                    // if the item amount in the bag is less than the required amount,
+                    // then remove the item from the bag and action bar
+                    if (InventoryManager.Instance.QuestItemInBag(reward.itemData).amount <= requireCount)
+                    {
+                        requireCount -= InventoryManager.Instance.QuestItemInBag(reward.itemData).amount;
+                        InventoryManager.Instance.QuestItemInBag(reward.itemData).amount = 0;
+
+                        if (InventoryManager.Instance.QuestItemInActionBar(reward.itemData) != null)
+                            InventoryManager.Instance.QuestItemInActionBar(reward.itemData).amount -= requireCount;
+                    }
+                    else
+                    {
+                        InventoryManager.Instance.QuestItemInBag(reward.itemData).amount -= requireCount;
+                    }
+                }
+                // if the item is in the action bar, remove the item from the action bar
+                else
+                {
+                    InventoryManager.Instance.QuestItemInActionBar(reward.itemData).amount -= requireCount;
+                }
+            }
+            else
+            {
+                InventoryManager.Instance.inventoryData.AddItem(reward.itemData, reward.amount);
+            }
+
+            InventoryManager.Instance.inventoryUI.RefreshUI();
+            InventoryManager.Instance.actionUI.RefreshUI();
+        }
+    }
 }

@@ -22,6 +22,8 @@ public class ItemUI : MonoBehaviour
             return;
         }
 
+        if (itemAmount < 0) item = null;
+
         if (item != null)
         {
             currentItemData = item;

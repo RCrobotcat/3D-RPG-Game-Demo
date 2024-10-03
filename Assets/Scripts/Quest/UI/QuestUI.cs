@@ -67,7 +67,9 @@ public class QuestUI : Singleton<QuestUI>
         foreach (var req in questData.questRequirements)
         {
             var newReq = Instantiate(questRequirement, requirementsTransform);
-            newReq.SetUpRequirements(req.name, req.requiredAmount, req.currentAmount);
+            if (questData.isFinished)
+                newReq.SetUpRequirements(req.name, true);
+            else newReq.SetUpRequirements(req.name, req.requiredAmount, req.currentAmount);
         }
     }
 

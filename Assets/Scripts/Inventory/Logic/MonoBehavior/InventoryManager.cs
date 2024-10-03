@@ -165,4 +165,15 @@ public class InventoryManager : Singleton<InventoryManager>
         }
     }
     #endregion
+
+    // Check if the quest item is in the inventory or action slot
+    public InventoryItem QuestItemInBag(ItemData_SO questItem)
+    {
+        return inventoryData.items.Find(i => i.itemData == questItem);
+    }
+
+    public InventoryItem QuestItemInActionBar(ItemData_SO questItem)
+    {
+        return actionData.items.Find(i => i.itemData == questItem);
+    }
 }

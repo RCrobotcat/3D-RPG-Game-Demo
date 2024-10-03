@@ -35,9 +35,14 @@ public class OptionUI : MonoBehaviour
             if (takeQuest)
             {
                 // check if player already have the quest
-                if (QuestManager.Instance.HaveQuest(currentPiece.questData))
+                if (QuestManager.Instance.HaveQuest(newTask.questData))
                 {
-                    // Judge if the quest is finished
+                    // the quest is completed and the player can finish the quest
+                    if (QuestManager.Instance.GetQuestTask(newTask.questData).IsCompleted)
+                    {
+                        newTask.questData.GiveQuestRewards();
+                        QuestManager.Instance.GetQuestTask(newTask.questData).IsFinished = true;
+                    }
                 }
                 else
                 {

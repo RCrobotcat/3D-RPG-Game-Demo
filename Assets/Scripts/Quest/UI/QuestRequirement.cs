@@ -19,4 +19,15 @@ public class QuestRequirement : MonoBehaviour
         requirementName.text = name;
         progressNum.text = currentAmount.ToString() + "/" + amount.ToString();
     }
+
+    public void SetUpRequirements(string name, bool isFinished)
+    {
+        if (isFinished)
+        {
+            requirementName.text = name;
+            progressNum.text = "Finished";
+            requirementName.color = Color.green;
+            progressNum.color = Color.green;
+        }
+    }
 }

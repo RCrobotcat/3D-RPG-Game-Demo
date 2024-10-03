@@ -21,4 +21,8 @@ MonoBehaviour:
   - name: Mushroom
     requiredAmount: 3
     currentAmount: 0
-  questRewards: []
+  questRewards:
+  - itemData: {fileID: 11400000, guid: b8ab8f78ea076814eb896927a19620ee, type: 2}
+    amount: 1
+  - itemData: {fileID: 11400000, guid: dc6fcb4f15b40ca469375862e66a615b, type: 2}
+    amount: -3

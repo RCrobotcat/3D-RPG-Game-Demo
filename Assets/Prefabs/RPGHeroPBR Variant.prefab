@@ -347,9 +347,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1319517528997712, guid: 1543549dcdf638d488bd40cb68dd9b8e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 16914803691349194}
-    - targetCorrespondingSourceObject: {fileID: 1319517528997712, guid: 1543549dcdf638d488bd40cb68dd9b8e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9182967053753063485}
   m_SourcePrefab: {fileID: 100100000, guid: 1543549dcdf638d488bd40cb68dd9b8e, type: 3}
 --- !u!1 &6970780327325324388 stripped
 GameObject:
@@ -402,7 +399,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &8040628723988762738
 CapsuleCollider:
@@ -457,20 +454,3 @@ MonoBehaviour:
   completedDialogueData: {fileID: 11400000, guid: aa338f646d7c79f48904abd15d3eaf3f, type: 2}
   finishedDialogueData: {fileID: 11400000, guid: 008eccc5ae8175e438a660ce769d311b, type: 2}
   questName: HeroQuest
---- !u!114 &9182967053753063485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6970780327325324388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85fada2b4c995334aae6a29e1fce10c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startDialogueData: {fileID: 11400000, guid: 13914f7bf4f4120449ec127f3d3bac6b, type: 2}
-  progressDialogueData: {fileID: 11400000, guid: 504dc136eb6caf9418355ae255462a71, type: 2}
-  completedDialogueData: {fileID: 11400000, guid: cb5e6a11335211c4c80b8c204006e901, type: 2}
-  finishedDialogueData: {fileID: 11400000, guid: f05ae36f72c58144dab655d055a131e4, type: 2}
-  questName: Quest2

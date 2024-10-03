@@ -21,4 +21,4 @@ MonoBehaviour:
     dialogueOption:
     - text: Thanks a lot, my friend!
       targetID: 
-      takeQuest: 0
+      takeQuest: 1

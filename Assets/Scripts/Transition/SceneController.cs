@@ -45,6 +45,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObserver
     {
         SaveManager.Instance.SavePlayerData();
         InventoryManager.Instance.SaveData();
+        QuestManager.Instance.SaveQuestManager();
 
         if (SceneName != SceneManager.GetActiveScene().name)
         {

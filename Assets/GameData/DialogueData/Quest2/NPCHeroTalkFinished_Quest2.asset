@@ -14,29 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePieces:
   - ID: Piece01
-    image: {fileID: 21300000, guid: 7f58c5964f777c64a8a2c238f0e76d6d, type: 3}
-    text: Hello my friend!
+    image: {fileID: 21300000, guid: 7de62c4ca989f834794634bcd29ef9d5, type: 3}
+    text: Hi there!
     questData: {fileID: 0}
     dialogueOption:
     - text: Hello!
-      targetID: Piece03
-      takeQuest: 0
-    - text: How is it going?
       targetID: Piece02
       takeQuest: 0
   - ID: Piece02
-    image: {fileID: 21300000, guid: 7f58c5964f777c64a8a2c238f0e76d6d, type: 3}
-    text: Thank you for killing those monsters! Go for adventure!
-    questData: {fileID: 11400000, guid: 9b42cee8a058a7a46aafa1ec66c50849, type: 2}
-    dialogueOption:
-    - text: Hear we go!
-      targetID: 
-      takeQuest: 0
-  - ID: Piece03
-    image: {fileID: 21300000, guid: 7f58c5964f777c64a8a2c238f0e76d6d, type: 3}
+    image: {fileID: 21300000, guid: 7de62c4ca989f834794634bcd29ef9d5, type: 3}
     text: 'Thank you for collecting these mushrooms! Go for adventure! Good luck! '
     questData: {fileID: 11400000, guid: 71485b96d9f528c40ad20893b4e7245b, type: 2}
     dialogueOption:
-    - text: Thanks!
+    - text: Alright!
       targetID: 
       takeQuest: 0

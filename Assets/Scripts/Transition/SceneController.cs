@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController>, IEndGameObserver

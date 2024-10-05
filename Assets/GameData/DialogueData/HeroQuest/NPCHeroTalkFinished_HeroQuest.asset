@@ -21,14 +21,31 @@ MonoBehaviour:
     - text: Hello!
       targetID: Piece02
       takeQuest: 0
+      followPlayer: 0
     - text: How is it going?
       targetID: Piece02
       takeQuest: 0
+      followPlayer: 0
   - ID: Piece02
     image: {fileID: 21300000, guid: 7f58c5964f777c64a8a2c238f0e76d6d, type: 3}
     text: Thank you for killing those monsters! Go ahead and be careful!
     questData: {fileID: 11400000, guid: 9b42cee8a058a7a46aafa1ec66c50849, type: 2}
     dialogueOption:
     - text: Hear we go!
+      targetID: Piece03
+      takeQuest: 0
+      followPlayer: 0
+  - ID: Piece03
+    image: {fileID: 21300000, guid: 7f58c5964f777c64a8a2c238f0e76d6d, type: 3}
+    text: By the way, would you mind if I come with you, become one of your teamates
+      to explore this mysteriou land? I will be really greatful!
+    questData: {fileID: 0}
+    dialogueOption:
+    - text: Let's GOOOO!
       targetID: 
       takeQuest: 0
+      followPlayer: 1
+    - text: No, Sorry!
+      targetID: 
+      takeQuest: 0
+      followPlayer: 0

@@ -32,7 +32,7 @@ public class DialogueController : MonoBehaviour
 
     void OpenDialogue()
     {
-        DialogueUI.Instance.UpdateDialogueData(currentDialogue);
+        DialogueUI.Instance.UpdateDialogueData(currentDialogue, GetComponent<NPCController>());
         DialogueUI.Instance.UpdateMainDialogue(currentDialogue.dialoguePieces[0]);
     }
 }

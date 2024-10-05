@@ -93,7 +93,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
             QuestManager.Instance.UpdateQuestProgress(this.name, 1);
     }
 
-    private void Update()
+    void Update()
     {
         if (characterStatus.currentHealth <= 0)
             isDead = true;

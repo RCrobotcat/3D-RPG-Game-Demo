@@ -20,6 +20,8 @@ public class DialogueUI : Singleton<DialogueUI>
     public DialogueData_SO currentDialogue;
     int currentIndex = 0;
 
+    [HideInInspector] public NPCController currentNpc;
+
     protected override void Awake()
     {
         base.Awake();
@@ -33,8 +35,9 @@ public class DialogueUI : Singleton<DialogueUI>
         else dialoguePanel.SetActive(false);
     }
 
-    public void UpdateDialogueData(DialogueData_SO data)
+    public void UpdateDialogueData(DialogueData_SO data, NPCController npc)
     {
+        currentNpc = npc;
         currentDialogue = data;
         currentIndex = 0;
     }

@@ -251,6 +251,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 130448, guid: 28ca59b1aaa5d804ab5fce89c0b01531, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1615263511064528191}
+    - targetCorrespondingSourceObject: {fileID: 130448, guid: 28ca59b1aaa5d804ab5fce89c0b01531, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3000497775012619582}
+    - targetCorrespondingSourceObject: {fileID: 130448, guid: 28ca59b1aaa5d804ab5fce89c0b01531, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3503312401332420024}
   m_SourcePrefab: {fileID: 100100000, guid: 28ca59b1aaa5d804ab5fce89c0b01531, type: 3}
 --- !u!1 &250479685220994496 stripped
 GameObject:
@@ -280,9 +286,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &2199542214939005226
 BoxCollider:
@@ -358,3 +364,38 @@ MonoBehaviour:
   completedDialogueData: {fileID: 11400000, guid: cb5e6a11335211c4c80b8c204006e901, type: 2}
   finishedDialogueData: {fileID: 11400000, guid: f05ae36f72c58144dab655d055a131e4, type: 2}
   questName: Quest2
+--- !u!114 &3000497775012619582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250479685220994496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a628a81a83f81449ac5d77e4bee1708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followPlayer: 0
+--- !u!195 &3503312401332420024
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250479685220994496}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.75
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

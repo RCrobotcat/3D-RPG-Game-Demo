@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +10,7 @@ public class OptionUI : MonoBehaviour
 
     string nextPieceID;
     bool takeQuest;
+    bool followPlayer;
 
     void Awake()
     {
@@ -25,6 +24,7 @@ public class OptionUI : MonoBehaviour
         optionText.text = option.text;
         nextPieceID = option.targetID;
         takeQuest = option.takeQuest;
+        followPlayer = option.followPlayer;
     }
 
     public void OnOptionClicked()
@@ -54,6 +54,15 @@ public class OptionUI : MonoBehaviour
                         InventoryManager.Instance.CheckQuestItemInBag(reqName);
                 }
             }
+        }
+
+        if (followPlayer)
+        {
+            DialogueUI.Instance.currentNpc.followPlayer = true;
+        }
+        else
+        {
+            DialogueUI.Instance.currentNpc.followPlayer = false;
         }
 
         if (nextPieceID == "")

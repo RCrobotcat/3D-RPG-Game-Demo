@@ -209,9 +209,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3965426403960352197}
-    - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5037864464683879738}
     - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       insertIndex: -1
@@ -222,24 +219,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
   m_PrefabInstance: {fileID: 1358426260634179081}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3965426403960352197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8187272853822994347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a31f4aa2746645949bb787d797f45812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  templateData: {fileID: 11400000, guid: 80240a89d9f2d674bac8a6937d724788, type: 2}
-  characterData: {fileID: 0}
-  attackData: {fileID: 11400000, guid: a23819833b593b8488ae6905ca95d7b0, type: 2}
-  isInvincible: 0
-  WeaponSlot: {fileID: 0}
-  isCritical: 0
 --- !u!114 &5037864464683879738
 MonoBehaviour:
   m_ObjectHideFlags: 0

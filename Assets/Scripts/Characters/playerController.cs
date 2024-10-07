@@ -1,7 +1,4 @@
-using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,7 +7,7 @@ public class playerController : MonoBehaviour
     [HideInInspector] public NavMeshAgent agent;
     private Animator playerAnimator;
 
-    private GameObject attackTarget;
+    [HideInInspector] public GameObject attackTarget;
     private float lastAttackTime;
 
     private Rigidbody rb;
@@ -20,6 +17,7 @@ public class playerController : MonoBehaviour
 
     bool isDead;
     bool isAttacking;
+    [HideInInspector] public bool isAboutToAttack;
 
     private CharacterStatus characterStatus;
 
@@ -55,7 +53,7 @@ public class playerController : MonoBehaviour
         MouseManager.Instance.OnEnemyClicked -= AttackEvent;
     }
 
-    private void Update()
+    void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
@@ -111,6 +109,8 @@ public class playerController : MonoBehaviour
     public void MoveToTarget(Vector3 target)
     {
         StopAllCoroutines();
+        attackTarget = null;
+        isAboutToAttack = false;
         isAttacking = false;
         if (isDead) return;
         agent.stoppingDistance = stopDistance;
@@ -124,6 +124,7 @@ public class playerController : MonoBehaviour
         if (target != null)
         {
             attackTarget = target;
+            isAboutToAttack = true;
             characterStatus.isCritical = Random.value < characterStatus.attackData.criticalChance;
             StartCoroutine(MoveToAttackTarget());
         }

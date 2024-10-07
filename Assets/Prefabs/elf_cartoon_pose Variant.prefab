@@ -331,9 +331,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Height: 4
+  m_Height: 3.149823
   m_Direction: 1
-  m_Center: {x: -0.04, y: 0.6500003, z: 0.06}
+  m_Center: {x: -0.039999966, y: 0.22491202, z: 0.060000017}
 --- !u!114 &6250298588537443996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followPlayer: 0
+  NpcAttackRange: 3
+  NpcAttackDamage: 6
 --- !u!195 &3503312401332420024
 NavMeshAgent:
   m_ObjectHideFlags: 0

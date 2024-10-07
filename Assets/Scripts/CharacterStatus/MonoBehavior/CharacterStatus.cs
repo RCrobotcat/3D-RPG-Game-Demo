@@ -27,7 +27,7 @@ public class CharacterStatus : MonoBehaviour
     [HideInInspector]
     public bool isCritical;
 
-    private void Awake()
+    void Awake()
     {
         // duplicate the template data to the character data
         if (templateData != null)
@@ -129,6 +129,17 @@ public class CharacterStatus : MonoBehaviour
     {
         if (isInvincible) return;
         int currentDamage = Mathf.Max(damage - definer.currentDefence, 0);
+        currentHealth = Mathf.Max(currentHealth - currentDamage, 0);
+        updateHealthBarOnAttack?.Invoke(currentHealth, maxHealth);
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance.playerStatus.characterData.UpdateExp(characterData.killPoint);
+        }
+    }
+
+    public void TakeDamageByNpc(int damage)
+    {
+        int currentDamage = Mathf.Max(damage - currentDefence, 0);
         currentHealth = Mathf.Max(currentHealth - currentDamage, 0);
         updateHealthBarOnAttack?.Invoke(currentHealth, maxHealth);
         if (currentHealth <= 0)
